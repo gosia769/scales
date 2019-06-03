@@ -9,6 +9,8 @@ import android.os.Bundle
 import android.support.annotation.RequiresApi
 import android.support.v7.app.AppCompatActivity
 import android.view.View
+import android.widget.Adapter
+import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
 
@@ -20,6 +22,11 @@ class MainActivity : AppCompatActivity() {
             this,
             AppDatabase::class.java, "weightDB"
         ).allowMainThreadQueries().build()
+
+        var lastWeight = db.weightDao().loadAllByIds(IntArray(db.weightDao().getAll().lastIndex))
+        getString(R.string.last_scale, lastWeight.get(0).value.toString())
+        getString(R.string.last_date, lastWeight.get(0).date.toString())
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
@@ -34,6 +41,9 @@ class MainActivity : AppCompatActivity() {
         val myIntent = Intent(baseContext, ScalesActivity::class.java)
         startActivity(myIntent)
     }
+
+    fun getLastValue () {}
+
 
 
 }
