@@ -1,16 +1,12 @@
 package com.example.scales
 
 import android.arch.persistence.room.Room
-import android.content.Context
 import android.content.Intent
-import android.net.http.HttpResponseCache.install
 import android.os.Build
 import android.os.Bundle
 import android.support.annotation.RequiresApi
 import android.support.v7.app.AppCompatActivity
 import android.view.View
-import android.widget.Adapter
-import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
 
@@ -23,9 +19,9 @@ class MainActivity : AppCompatActivity() {
             AppDatabase::class.java, "weightDB"
         ).allowMainThreadQueries().build()
 
-        var lastWeight = db.weightDao().loadAllByIds(IntArray(db.weightDao().getAll().lastIndex))
-        getString(R.string.last_scale, lastWeight.get(0).value.toString())
-        getString(R.string.last_date, lastWeight.get(0).date.toString())
+//        var lastWeight = db.weightDao().loadAllByIds(IntArray(db.weightDao().getAll().lastIndex))
+//        getString(R.string.last_scale, lastWeight.get(0).value.toString())
+//        getString(R.string.last_date, lastWeight.get(0).date.toString())
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
