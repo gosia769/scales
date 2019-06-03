@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity" android:background="#E1E9EC">
+
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="414dp"
+            android:layout_height="390dp"
+            android:background="@color/screenBackground"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginLeft="4dp" android:layout_marginStart="4dp" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" android:layout_marginRight="8dp" app:layout_constraintHorizontal_bias="0.4"
+            android:id="@+id/constraintLayout" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
+
+        <TextView
+                android:layout_width="161dp"
+                android:layout_height="97dp"
+                android:text="@string/waga"
+                android:gravity="center"
+                android:background="@color/screenBackground"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent" android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                android:textSize="44sp" android:textColor="#186588"
+                app:layout_constraintVertical_bias="0.412" android:id="@+id/textView"
+                app:layout_constraintHorizontal_bias="0.466"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/date"
+                android:textSize="25sp"
+                android:ems="10"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:id="@+id/editText"
+                android:layout_marginBottom="316dp" android:layout_marginLeft="64dp"
+                android:layout_marginStart="64dp"
+        />
+
+    </android.support.constraint.ConstraintLayout>
+
+
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="412dp"
+            android:layout_height="342dp"
+            android:background="#D1DDE7" tools:layout_editor_absoluteY="387dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteX="-2dp">
+
+        <Button
+                android:id="@+id/bSearch"
+                android:layout_width="173dp"
+                android:layout_height="220dp"
+                android:padding="16dp"
+                android:text="history"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:onClick="onButtonHistoryClick"
+                android:textSize="18sp" android:layout_marginBottom="100dp" android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp"/>
+
+        <Button
+                android:id="@+id/bTrends"
+                android:layout_width="170dp"
+                android:layout_height="225dp"
+                android:padding="16dp"
+                android:text="trends"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:textSize="18sp" android:layout_marginBottom="96dp" android:layout_marginLeft="224dp"
+                android:layout_marginStart="224dp"/>
+
+        <Button
+                android:layout_width="386dp"
+                android:text="Stand on scales"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:layout_height="61dp"
+                android:onClick="onButtonScalesClick"
+                android:id="@+id/button2" android:layout_marginBottom="24dp" android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp"/>
+
+    </android.support.constraint.ConstraintLayout>
+</android.support.constraint.ConstraintLayout>
