@@ -1,18 +1,24 @@
 package com.example.scales;
 
+import android.arch.persistence.room.Room;
 import android.bluetooth.*;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 
 import java.nio.charset.Charset;
+import java.util.Arrays;
+import java.util.Date;
 import java.util.Objects;
 import java.util.UUID;
 
 public class ScalesActivity extends AppCompatActivity {
 
     private static final String TAG = "Iksde";
+    private AppDatabase db;
 
     private boolean mConnected;
     private BluetoothAdapter mBluetoothAdapter;
@@ -23,6 +29,9 @@ public class ScalesActivity extends AppCompatActivity {
 
 
     protected void onCreate(Bundle savedInstanceState) {
+        db = Room.databaseBuilder(getApplicationContext(),
+                AppDatabase.class, "weightDB").allowMainThreadQueries().build();
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scales);
 
@@ -48,7 +57,7 @@ public class ScalesActivity extends AppCompatActivity {
             return;
         }
 
-        BluetoothGattCharacteristic characteristic =  mGatt.getServices().get(2)
+        BluetoothGattCharacteristic characteristic = mGatt.getServices().get(2)
                 .getCharacteristics()
                 .stream().filter(bluetoothGattCharacteristic -> bluetoothGattCharacteristic.getUuid().equals(UUID.fromString("6E400002-B5A3-F393-E0A9-E50E24DCCA9E")))
                 .findAny().orElse(null);
@@ -89,6 +98,18 @@ public class ScalesActivity extends AppCompatActivity {
         }
     }
 
+    public void onButtonMeasurementClick(View view) {
+        double value = 100.0;
+        Date date = new Date();
+
+        int size = db.weightDao().getAll().size();
+        int id = db.weightDao().getAll().get(size - 1).getId() + 1;
+        db.weightDao().insertAll(new Weight(id, date, value));
+        Intent myIntent = new Intent(this, MainActivity.class);
+        startActivity(myIntent);
+
+    }
+
     private class GattClientCallback extends BluetoothGattCallback {
 
         @Override
@@ -125,14 +146,14 @@ public class ScalesActivity extends AppCompatActivity {
                 log(bluetoothGattService.getUuid().toString());
             });
 
-            BluetoothGattCharacteristic characteristic =  mGatt.getServices().get(2)
+            BluetoothGattCharacteristic characteristic = mGatt.getServices().get(2)
                     .getCharacteristics()
                     .stream().filter(bluetoothGattCharacteristic -> {
                         log(bluetoothGattCharacteristic.getUuid().toString());
                         return bluetoothGattCharacteristic.getUuid().equals(UUID.fromString("6E400003-B5A3-F393-E0A9-E50E24DCCA9E"));
                     })
                     .findAny().orElse(null);
-             enableCharacteristicNotification(gatt, characteristic);
+            enableCharacteristicNotification(gatt, characteristic);
         }
 
         @Override
@@ -182,4 +203,5 @@ public class ScalesActivity extends AppCompatActivity {
             }
         }
     }
+
 }
