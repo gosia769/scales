@@ -99,19 +99,14 @@ public class ScalesActivity extends AppCompatActivity {
     }
 
     public void onButtonMeasurementClick(View view) {
+//        TextView textView =  findViewById(R.id.weight_value);
+//        textView.setText();
 
         double value = Double.parseDouble (read.getText().toString());
-
-//        double value = 100.0;
         Date date = new Date();
 
         int size = db.weightDao().getAll().size();
-        int id;
-         if (size > 0 ) {
-             id = db.weightDao().getAll().get(size - 1).getId() + 1;
-         } else {
-             id = 0;
-         }
+        int id = (size > 0) ? db.weightDao().getAll().get(size - 1).getId() + 1: 0;
         db.weightDao().insertAll(new Weight(id, date, value));
         Intent myIntent = new Intent(this, MainActivity.class);
         startActivity(myIntent);

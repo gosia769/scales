@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
 //        )
 
         if (db.weightDao().getAll().isNotEmpty()) {
-            val lastWeight = db.weightDao().loadAllByIds(IntArray(db.weightDao().getAll().lastIndex))[0]
+            val lastWeight = db.weightDao().getAll().last()
             findViewById<TextView>(R.id.lastWeightDate).text = lastWeight.date.toString()
             findViewById<TextView>(R.id.lastWeightValue).text = lastWeight.value.toString() + " kg"
 
