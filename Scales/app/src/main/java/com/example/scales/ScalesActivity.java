@@ -99,6 +99,11 @@ public class ScalesActivity extends AppCompatActivity {
     }
 
     public void onButtonMeasurementClick(View view) {
+//        TextView textView =  findViewById(R.id.weight_value);
+//        textView.setText();
+
+//        Double value1 = Double.parseDouble (read.getText().toString());
+
         double value = 100.0;
         Date date = new Date();
 

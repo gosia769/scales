@@ -2,8 +2,6 @@ package com.example.scales
 
 import android.arch.persistence.room.Room
 import android.content.Intent
-import android.databinding.Bindable
-import android.databinding.DataBindingUtil
 import android.os.Build
 import android.os.Bundle
 import android.support.annotation.RequiresApi
@@ -26,11 +24,24 @@ class MainActivity : AppCompatActivity() {
             AppDatabase::class.java, "weightDB"
         ).allowMainThreadQueries().build()
 
+//        db.weightDao().insertAll(
+//            Weight(0, Date(), 55.0),
+//            Weight(1, Date(), 54.0)
+//        )
+
         if (db.weightDao().getAll().isNotEmpty()) {
-            print(db.weightDao().getAll().size.toString())
             val lastWeight = db.weightDao().loadAllByIds(IntArray(db.weightDao().getAll().lastIndex))[0]
             findViewById<TextView>(R.id.lastWeightDate).text = lastWeight.date.toString()
             findViewById<TextView>(R.id.lastWeightValue).text = lastWeight.value.toString()
+
+//            val size = db.weightDao().getAll().size
+//            val id = db.weightDao().getAll()[size - 1].id
+//            val lastWeight = db.weightDao().loadAllByIds(intArrayOf(id))[0]
+//
+//            val textView1: TextView = findViewById(R.id.lastWeightValue)
+//            textView1.text = lastWeight.value.toString() + " kg"
+//            val textView2: TextView = findViewById(R.id.lastWeightDate)
+//            textView2.text = lastWeight.date.toString()
         }
 
     }

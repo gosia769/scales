@@ -8,20 +8,19 @@
         tools:context=".MainActivity" android:background="#E1E9EC">
 
     <android.support.constraint.ConstraintLayout
-            android:layout_width="414dp"
-            android:layout_height="390dp"
+            android:layout_width="421dp"
+            android:layout_height="400dp"
             android:background="@color/screenBackground"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
             android:id="@+id/constraintLayout" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0">
 
         <TextView
-                android:layout_width="161dp"
-                android:layout_height="97dp"
-                android:text=""
+                android:layout_width="194dp"
+                android:layout_height="123dp"
+                android:text="0.0 kg"
                 android:gravity="center"
                 android:background="@color/screenBackground"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -30,9 +29,9 @@
                 app:layout_constraintTop_toTopOf="parent"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 android:textSize="44sp" android:textColor="#186588"
-                app:layout_constraintVertical_bias="0.412"
+                app:layout_constraintVertical_bias="0.411"
                 android:id="@+id/lastWeightValue"
-                app:layout_constraintHorizontal_bias="0.466"/>
+                app:layout_constraintHorizontal_bias="0.554"/>
         <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -41,31 +40,28 @@
                 android:textSize="25sp"
                 android:ems="10"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
                 android:id="@+id/lastWeightDate"
-                android:layout_marginBottom="316dp" android:layout_marginLeft="64dp"
-                android:layout_marginStart="64dp"
-        />
+                android:layout_marginBottom="288dp"
+                android:layout_marginRight="40dp"/>
 
     </android.support.constraint.ConstraintLayout>
 
 
     <android.support.constraint.ConstraintLayout
-            android:layout_width="412dp"
-            android:layout_height="342dp"
-            android:background="#D1DDE7" tools:layout_editor_absoluteY="387dp"
+            android:layout_width="403dp"
+            android:layout_height="339dp"
+            android:background="#D1DDE7"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteX="-2dp">
+    >
 
         <Button
                 android:id="@+id/bSearch"
-                android:layout_width="173dp"
-                android:layout_height="220dp"
+                android:layout_width="151dp"
+                android:layout_height="215dp"
                 android:padding="16dp"
                 android:text="history"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -73,32 +69,32 @@
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 android:onClick="onButtonHistoryClick"
-                android:textSize="18sp" android:layout_marginBottom="100dp" android:layout_marginLeft="12dp"
+                android:textSize="18sp" android:layout_marginBottom="100dp"
                 android:layout_marginStart="12dp"/>
 
         <Button
                 android:id="@+id/bTrends"
-                android:layout_width="170dp"
-                android:layout_height="225dp"
+                android:layout_width="152dp"
+                android:layout_height="226dp"
                 android:padding="16dp"
                 android:text="trends"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:textSize="18sp" android:layout_marginBottom="96dp" android:layout_marginLeft="224dp"
+                android:textSize="18sp" android:layout_marginBottom="96dp"
                 android:layout_marginStart="224dp"/>
 
         <Button
-                android:layout_width="386dp"
+                android:layout_width="367dp"
                 android:text="Stand on scales"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                android:layout_height="61dp"
+                android:layout_height="54dp"
                 android:onClick="onButtonScalesClick"
-                android:id="@+id/button2" android:layout_marginBottom="24dp" android:layout_marginLeft="12dp"
+                android:id="@+id/button2" android:layout_marginBottom="24dp"
                 android:layout_marginStart="12dp"/>
 
     </android.support.constraint.ConstraintLayout>
